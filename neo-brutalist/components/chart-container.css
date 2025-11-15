@@ -1,0 +1,82 @@
+/* Chart Container Component - shadcn style */
+.chart-container {
+    background-color: white;
+    border: 3px solid hsl(var(--border));
+    padding: 2rem 2rem 2.5rem 2rem;
+    margin: 0;
+    box-shadow: 4px 4px 0px hsl(var(--border));
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Soothing pastel backgrounds for each chart */
+.chart-container[data-bg="pink"] {
+    background: linear-gradient(135deg, #FFE5EC 0%, #FFF0F5 100%);
+}
+
+.chart-container[data-bg="blue"] {
+    background: linear-gradient(135deg, #E8F4FF 0%, #F0F8FF 100%);
+}
+
+.chart-container[data-bg="mint"] {
+    background: linear-gradient(135deg, #E8FFF5 0%, #F0FFF8 100%);
+}
+
+.chart-container[data-bg="peach"] {
+    background: linear-gradient(135deg, #FFF0E5 0%, #FFF8F0 100%);
+}
+
+.chart-container[data-bg="lavender"] {
+    background: linear-gradient(135deg, #F5F0FF 0%, #FAF5FF 100%);
+}
+
+.chart-container[data-bg="green"] {
+    background: linear-gradient(135deg, #F0FFE8 0%, #F8FFF0 100%);
+}
+
+.chart-container[data-bg="cream"] {
+    background: linear-gradient(135deg, #FFFEF0 0%, #FFFFF5 100%);
+}
+
+.chart-container[data-bg="coral"] {
+    background: linear-gradient(135deg, #FFE8E8 0%, #FFF0F0 100%);
+}
+
+.chart-container:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px hsl(var(--border));
+}
+
+.chart-container__title {
+    font-size: 1.1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 3px solid hsl(var(--border));
+    color: hsl(var(--foreground));
+    letter-spacing: 0.05em;
+}
+
+.chart-container__wrapper {
+    flex: 1;
+    position: relative;
+    min-height: 0;
+}
+
+/* Chart specific styles */
+.chart-container canvas {
+    font-family: 'Inter', sans-serif;
+    width: 100% !important;
+    height: 100% !important;
+    background: transparent !important;
+}
+
+/* Make chart text more readable */
+.chart-container h3 {
+    font-size: 1.1rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+}

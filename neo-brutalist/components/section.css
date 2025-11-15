@@ -1,0 +1,30 @@
+/* Section Component */
+.section {
+    margin: 80px 0;
+}
+
+.section__header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.section__title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    color: var(--primary);
+    text-shadow: 3px 3px 0 rgba(255, 107, 53, 0.2);
+}
+
+.section__description {
+    font-size: 1.125rem;
+    color: var(--muted-foreground);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.section__content {
+    margin-top: 32px;
+}

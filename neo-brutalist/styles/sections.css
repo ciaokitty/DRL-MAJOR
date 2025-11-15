@@ -1,0 +1,268 @@
+/* Additional styles for new sections */
+
+/* Methodology section */
+.methodology {
+    margin: 4rem 0;
+}
+
+.methodology-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.methodology-item h4 {
+    color: var(--color-pink);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.methodology-item p {
+    margin: 0.25rem 0;
+}
+
+/* Technical indicators */
+.technical-indicators {
+    margin: 4rem 0;
+}
+
+.indicators-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+}
+
+.indicator-card {
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    border: 3px solid #000;
+    text-align: center;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.indicator-card:hover {
+    transform: translateY(-8px) rotate(-1deg);
+}
+
+.indicator-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.indicator-card p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Info cards */
+.info-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    border: 3px solid #000;
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.15);
+    margin: 2rem 0;
+}
+
+.info-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.info-card ul {
+    list-style-position: inside;
+    padding-left: 1rem;
+}
+
+.info-card li {
+    margin: 0.75rem 0;
+    line-height: 1.6;
+}
+
+/* Benchmark section */
+.benchmark-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.benchmark-item {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    border: 3px solid #000;
+}
+
+.benchmark-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--color-purple);
+}
+
+.benchmark-values {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.benchmark-value {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    background: var(--bg-gradient-1);
+    border-radius: 6px;
+}
+
+.benchmark-value .label {
+    font-weight: 600;
+}
+
+.benchmark-value .value {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+}
+
+.benchmark-value .value-highlight {
+    color: var(--color-pink);
+}
+
+/* Risk cards */
+.risk-card {
+    padding: 2rem;
+    border-radius: 12px;
+    border: 3px solid #000;
+    background: white;
+    transition: transform 0.3s;
+}
+
+.risk-card:hover {
+    transform: scale(1.05);
+}
+
+.risk-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.risk-card p {
+    margin: 1rem 0;
+    line-height: 1.6;
+}
+
+.risk-ranking {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 3px solid #000;
+}
+
+.risk-ranking p {
+    margin: 0.5rem 0;
+}
+
+/* Detail cards */
+.detail-card {
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 3px solid #000;
+    background: white;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.detail-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.detail-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.detail-card p {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
+.detail-card strong {
+    color: var(--color-pink);
+}
+
+/* Environment cards */
+.env-card {
+    padding: 2rem;
+    border-radius: 12px;
+    border: 3px solid #000;
+    background: white;
+}
+
+.env-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.env-content {
+    line-height: 1.6;
+}
+
+/* Insight cards */
+.insight-card {
+    padding: 2rem;
+    border-radius: 12px;
+    border: 3px solid #000;
+    background: white;
+    transition: transform 0.3s;
+}
+
+.insight-card:hover {
+    transform: rotate(2deg);
+}
+
+.insight-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+/* Text utilities */
+.text-muted {
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+/* Table container */
+.table-container {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 3px solid #000;
+    background: white;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 3rem 0;
+    margin-top: 4rem;
+    border-top: 3px solid #000;
+}
+
+.footer p {
+    margin: 0.5rem 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .methodology-grid,
+    .indicators-grid,
+    .benchmark-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-card {
+        padding: 1.5rem;
+    }
+    
+    .detail-card {
+        padding: 1.5rem;
+    }
+}

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard: Deep Reinforcement Learning for NIFTY-50 Trading</title>
+    
+    <!-- Pastel Theme Stylesheets -->
+    <link rel="stylesheet" href="styles/pastel-theme.css?v=4">
+    <link rel="stylesheet" href="styles/sections.css?v=4">
+    <link rel="stylesheet" href="components/shadcn-base.css?v=4">
+    <link rel="stylesheet" href="components/base.css?v=4">
+    <link rel="stylesheet" href="components/chart-container.css?v=4">
+    <link rel="stylesheet" href="components/stat-card.css?v=4">
+    <link rel="stylesheet" href="components/model-card.css?v=4">
+    <link rel="stylesheet" href="components/model-comparison.css?v=4">
+    <link rel="stylesheet" href="components/environment.css?v=4">
+    <link rel="stylesheet" href="components/insights.css?v=4">
+    <link rel="stylesheet" href="components/metrics-table.css?v=4">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="pastel-container">
+        <!-- Hero Section -->
+        <header class="hero animate-on-scroll slide-in-top">
+            <h1 class="hero-title">Dashboard</h1>
+            <p class="hero-subtitle">Deep Reinforcement Learning for NIFTY-50 Stock Trading</p>
+            <div class="hero-meta">
+                <span class="badge badge-best">₹20L Initial Capital</span>
+                <span class="badge badge-moderate">21 Months Trading</span>
+                <span class="badge badge-conservative">6 Algorithms Compared</span>
+            </div>
+        </header>
+
+        <!-- Stats Overview -->
+        <section class="stats-overview animate-on-scroll scale-in">
+            <h2 class="section-title">Performance Highlights</h2>
+            <div id="statsGrid" class="grid grid-4"></div>
+        </section>
+
+        <!-- Methodology Section -->
+        <section class="methodology animate-on-scroll slide-in-left">
+            <h2 class="section-title">Research Methodology</h2>
+            <div class="info-card card-blue">
+                <h3>Deep Reinforcement Learning Approach</h3>
+                <p>This project implements and compares multiple state-of-the-art <span class="tooltip-wrapper" data-tooltip="drl">Deep Reinforcement Learning</span> algorithms for automated stock trading on the NIFTY-50 index. The agents learn optimal trading strategies through interaction with a simulated market environment.</p>
+                
+                <div class="methodology-grid">
+                    <div class="methodology-item">
+                        <h4>Trading Period</h4>
+                        <p>November 2023 - September 2025</p>
+                        <p class="text-muted">21 months of hourly OHLCV data</p>
+                    </div>
+                    <div class="methodology-item">
+                        <h4>Market Data</h4>
+                        <p>NIFTY-50 Constituent Stocks</p>
+                        <p class="text-muted">50 stocks, hourly granularity</p>
+                    </div>
+                    <div class="methodology-item">
+                        <h4>Initial Capital</h4>
+                        <p><span class="tooltip-wrapper" data-tooltip="initial_capital">₹2,00,00,000</span></p>
+                        <p class="text-muted">20 Lakhs starting portfolio</p>
+                    </div>
+                    <div class="methodology-item">
+                        <h4>Transaction Costs</h4>
+                        <p><span class="tooltip-wrapper" data-tooltip="buy_cost_pct">0.1% buy</span>, <span class="tooltip-wrapper" data-tooltip="sell_cost_pct">0.1% sell</span></p>
+                        <p class="text-muted">Realistic brokerage simulation</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Indicators Section -->
+        <section class="technical-indicators animate-on-scroll slide-in-right">
+            <h2 class="section-title">Technical Indicators Used</h2>
+            <div class="indicators-grid">
+                <div class="indicator-card card-pink">
+                    <h3><span class="tooltip-wrapper" data-tooltip="macd">MACD</span></h3>
+                    <p>Moving Average Convergence Divergence</p>
+                </div>
+                <div class="indicator-card card-peach">
+                    <h3><span class="tooltip-wrapper" data-tooltip="rsi">RSI</span></h3>
+                    <p>Relative Strength Index</p>
+                </div>
+                <div class="indicator-card card-yellow">
+                    <h3><span class="tooltip-wrapper" data-tooltip="cci">CCI</span></h3>
+                    <p>Commodity Channel Index</p>
+                </div>
+                <div class="indicator-card card-green">
+                    <h3><span class="tooltip-wrapper" data-tooltip="adx">ADX</span></h3>
+                    <p>Average Directional Index</p>
+                </div>
+                <div class="indicator-card card-blue">
+                    <h3><span class="tooltip-wrapper" data-tooltip="bollinger">Bollinger Bands</span></h3>
+                    <p>Volatility indicators</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Charts -->
+        <section class="charts-section animate-on-scroll">
+            <h2 class="section-title">Performance Visualizations</h2>
+            <div class="grid grid-2">
+                <div class="chart-container scale-in" data-bg="pink">
+                    <h3>Portfolio Value Over Time</h3>
+                    <canvas id="portfolioChart"></canvas>
+                </div>
+                <div class="chart-container scale-in" data-bg="blue">
+                    <h3>Annual Returns Comparison</h3>
+                    <canvas id="returnsChart"></canvas>
+                </div>
+                <div class="chart-container scale-in" data-bg="mint">
+                    <h3>Risk-Return Profile</h3>
+                    <canvas id="riskReturnChart"></canvas>
+                </div>
+                <div class="chart-container scale-in" data-bg="peach">
+                    <h3>Benchmark Comparison</h3>
+                    <canvas id="benchmarkChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Analysis Charts -->
+        <section class="charts-section animate-on-scroll">
+            <h2 class="section-title">Advanced Analytics</h2>
+            <div class="grid grid-2">
+                <div class="chart-container scale-in" data-bg="lavender">
+                    <h3>Cumulative Returns Over Time</h3>
+                    <canvas id="cumulativeReturnsChart"></canvas>
+                </div>
+                <div class="chart-container scale-in" data-bg="green">
+                    <h3>Trading Actions Distribution</h3>
+                    <canvas id="tradingActionsChart"></canvas>
+                </div>
+                <div class="chart-container scale-in" data-bg="cream">
+                    <h3>Daily Returns Distribution</h3>
+                    <canvas id="dailyReturnsChart"></canvas>
+                </div>
+                <div class="chart-container scale-in" data-bg="coral">
+                    <h3>Volatility Comparison</h3>
+                    <canvas id="volatilityChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Algorithm Comparison -->
+        <section class="algorithms animate-on-scroll slide-in-left">
+            <h2 class="section-title">Algorithms Tested</h2>
+            <div id="modelsGrid" class="grid grid-3"></div>
+        </section>
+
+        <!-- Detailed Metrics Table -->
+        <section class="metrics-section animate-on-scroll slide-in-right">
+            <h2 class="section-title">Comprehensive Performance Metrics</h2>
+            <div class="table-container">
+                <table id="metricsTable" class="metrics-table"></table>
+            </div>
+        </section>
+
+        <!-- Trading Environment -->
+        <section class="environment-section animate-on-scroll scale-in">
+            <h2 class="section-title">Trading Environment Configuration</h2>
+            <div id="environmentGrid" class="grid grid-2"></div>
+        </section>
+
+        <!-- Key Insights -->
+        <section class="insights-section animate-on-scroll slide-in-left">
+            <h2 class="section-title">Research Insights</h2>
+            <div id="insightsGrid" class="grid grid-2"></div>
+        </section>
+
+        <!-- Benchmark Comparison Details -->
+        <section class="benchmark-section animate-on-scroll slide-in-right">
+            <h2 class="section-title">Literature Comparison</h2>
+            <div class="info-card card-purple">
+                <h3>Performance vs. FinRL Research</h3>
+                <p>Our implementation is benchmarked against results published in established FinRL literature. The comparison demonstrates competitive performance with state-of-the-art approaches while adapting to Indian market dynamics.</p>
+                
+                <div id="benchmarkDetails" class="benchmark-details"></div>
+                
+                <div class="methodology-grid">
+                    <div class="methodology-item">
+                        <h4>Literature Baseline</h4>
+                        <p>FinRL framework implementations</p>
+                        <p class="text-muted">Published academic results</p>
+                    </div>
+                    <div class="methodology-item">
+                        <h4>Our Contributions</h4>
+                        <p>NIFTY-50 market adaptation</p>
+                        <p class="text-muted">Hourly granularity trading</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Risk Analysis -->
+        <section class="risk-analysis animate-on-scroll scale-in">
+            <h2 class="section-title">Risk Metrics Analysis</h2>
+            <div class="grid grid-3">
+                <div class="risk-card card-pink">
+                    <h3><span class="tooltip-wrapper" data-tooltip="sharpe_ratio">Sharpe Ratio</span></h3>
+                    <p>Risk-adjusted return metric accounting for volatility. Higher values indicate better risk-adjusted performance.</p>
+                    <div class="risk-ranking">
+                        <p><strong>Best:</strong> PPO (1.85)</p>
+                        <p><strong>Worst:</strong> MVO (0.92)</p>
+                    </div>
+                </div>
+                <div class="risk-card card-peach">
+                    <h3><span class="tooltip-wrapper" data-tooltip="sortino_ratio">Sortino Ratio</span></h3>
+                    <p>Similar to Sharpe but considers only downside volatility. Better for asymmetric return distributions.</p>
+                    <div class="risk-ranking">
+                        <p><strong>Best:</strong> PPO (2.31)</p>
+                        <p><strong>Worst:</strong> MVO (1.15)</p>
+                    </div>
+                </div>
+                <div class="risk-card card-yellow">
+                    <h3><span class="tooltip-wrapper" data-tooltip="max_drawdown">Maximum Drawdown</span></h3>
+                    <p>Largest peak-to-trough decline. Lower (more negative) values indicate higher risk.</p>
+                    <div class="risk-ranking">
+                        <p><strong>Best:</strong> MVO (-8.2%)</p>
+                        <p><strong>Worst:</strong> DDPG (-22.5%)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Model Details -->
+        <section class="model-details animate-on-scroll slide-in-left">
+            <h2 class="section-title">Algorithm Characteristics</h2>
+            <div class="grid grid-2">
+                <div class="detail-card card-pink">
+                    <h3><span class="tooltip-wrapper" data-tooltip="ppo">PPO</span> - Proximal Policy Optimization</h3>
+                    <p><strong>Type:</strong> On-policy Actor-Critic</p>
+                    <p><strong>Key Feature:</strong> Clipped surrogate objective prevents large policy updates</p>
+                    <p><strong>Best For:</strong> Stable training with good sample efficiency</p>
+                    <p><strong>Performance:</strong> Best overall performer (27.14% return)</p>
+                </div>
+                <div class="detail-card card-blue">
+                    <h3><span class="tooltip-wrapper" data-tooltip="a2c">A2C</span> - Advantage Actor-Critic</h3>
+                    <p><strong>Type:</strong> On-policy Actor-Critic</p>
+                    <p><strong>Key Feature:</strong> Synchronous advantage estimation</p>
+                    <p><strong>Best For:</strong> Fast convergence with moderate stability</p>
+                    <p><strong>Performance:</strong> Second best (24.21% return)</p>
+                </div>
+                <div class="detail-card card-green">
+                    <h3><span class="tooltip-wrapper" data-tooltip="ddpg">DDPG</span> - Deep Deterministic Policy Gradient</h3>
+                    <p><strong>Type:</strong> Off-policy Actor-Critic</p>
+                    <p><strong>Key Feature:</strong> Deterministic policy with experience replay</p>
+                    <p><strong>Best For:</strong> Continuous action spaces</p>
+                    <p><strong>Performance:</strong> Third place (18.52% return)</p>
+                </div>
+                <div class="detail-card card-peach">
+                    <h3><span class="tooltip-wrapper" data-tooltip="td3">TD3</span> - Twin Delayed DDPG</h3>
+                    <p><strong>Type:</strong> Off-policy Actor-Critic</p>
+                    <p><strong>Key Feature:</strong> Double Q-learning with delayed policy updates</p>
+                    <p><strong>Best For:</strong> Reducing overestimation bias</p>
+                    <p><strong>Performance:</strong> Moderate (15.73% return)</p>
+                </div>
+                <div class="detail-card card-purple">
+                    <h3><span class="tooltip-wrapper" data-tooltip="sac">SAC</span> - Soft Actor-Critic</h3>
+                    <p><strong>Type:</strong> Off-policy Actor-Critic with entropy regularization</p>
+                    <p><strong>Key Feature:</strong> Maximum entropy framework encourages exploration</p>
+                    <p><strong>Best For:</strong> Robust policies in stochastic environments</p>
+                    <p><strong>Performance:</strong> Lower tier (12.94% return)</p>
+                </div>
+                <div class="detail-card card-coral">
+                    <h3><span class="tooltip-wrapper" data-tooltip="mvo">MVO</span> - Mean-Variance Optimization</h3>
+                    <p><strong>Type:</strong> Traditional portfolio optimization (baseline)</p>
+                    <p><strong>Key Feature:</strong> Markowitz efficient frontier</p>
+                    <p><strong>Best For:</strong> Risk-averse strategies</p>
+                    <p><strong>Performance:</strong> Conservative baseline (9.33% return)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Limitations and Future Work -->
+        <section class="future-work animate-on-scroll slide-in-right">
+            <h2 class="section-title">Limitations & Future Research</h2>
+            <div class="grid grid-2">
+                <div class="info-card card-yellow">
+                    <h3>Current Limitations</h3>
+                    <ul>
+                        <li>Hourly data may miss intraday volatility patterns</li>
+                        <li>Transaction costs simplified (no slippage modeling)</li>
+                        <li>No consideration of market impact for large orders</li>
+                        <li>Training limited to 21-month period</li>
+                        <li>No multi-asset correlation modeling</li>
+                    </ul>
+                </div>
+                <div class="info-card card-mint">
+                    <h3>Future Directions</h3>
+                    <ul>
+                        <li>Incorporate sentiment analysis from news/social media</li>
+                        <li>Test on multiple market conditions (bull/bear/sideways)</li>
+                        <li>Ensemble methods combining multiple algorithms</li>
+                        <li>Real-time deployment with paper trading validation</li>
+                        <li>Transfer learning across different stock exchanges</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer animate-on-scroll scale-in">
+            <p>Research Project | Deep Reinforcement Learning for Indian Stock Market</p>
+            <p class="text-muted">Results based on backtesting. Past performance does not guarantee future results.</p>
+        </footer>
+    </div>
+
+    <!-- Application Scripts -->
+    <script type="module" src="scripts/animations.js?v=4"></script>
+    <script type="module" src="scripts/pastel-charts.js?v=4"></script>
+    <script type="module" src="app.js?v=4"></script>
+</body>
+</html>

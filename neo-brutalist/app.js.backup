@@ -1,0 +1,107 @@
+// Main Application Entry Point
+import { projectData } from './components/data.js';
+import {
+    buildHeader,
+    buildStatsGrid,
+    buildModelsGrid,
+    buildEnvironmentSection,
+    buildInsightsSection,
+    buildFooter
+} from './components/builders.js';
+import {
+    createPortfolioChart,
+    createReturnsChart,
+    createRiskReturnChart,
+    createBenchmarkChart
+} from './components/charts.js';
+
+// Populate HTML sections with built components
+function initializeComponents() {
+    document.getElementById('header-container').innerHTML = buildHeader();
+    document.getElementById('stats-container').innerHTML = buildStatsGrid();
+    document.getElementById('models-container').innerHTML = buildModelsGrid();
+    document.getElementById('environment-container').innerHTML = buildEnvironmentSection();
+    document.getElementById('insights-container').innerHTML = buildInsightsSection();
+    document.getElementById('footer-container').innerHTML = buildFooter();
+    
+    // Build metrics table
+    buildMetricsTable();
+}
+
+// Build detailed metrics comparison table
+function buildMetricsTable() {
+    const tbody = document.getElementById('metrics-table-body');
+    const tableRows = projectData.models.map(model => {
+        const isHighlight = model.badge.text === 'BEST PERFORMER';
+        const rowClass = isHighlight ? 'neo-table__row--highlight' : '';
+        
+        return `
+            <tr class="${rowClass}">
+                <td>${model.name}</td>
+                <td>${model.metrics.finalValue}</td>
+                <td><strong>${model.metrics.annualReturn}</strong></td>
+                <td>${model.metrics.sharpeRatio}</td>
+                <td>${model.metrics.maxDrawdown}</td>
+                <td>${model.metrics.winRate}</td>
+                <td>${model.metrics.annualVolatility}</td>
+            </tr>
+        `;
+    }).join('');
+    
+    tbody.innerHTML = tableRows;
+}
+
+// Initialize charts after DOM is ready
+function initializeCharts() {
+    createPortfolioChart('portfolio-chart');
+    createReturnsChart('returns-chart');
+    createRiskReturnChart('risk-return-chart');
+    createBenchmarkChart('benchmark-chart');
+}
+
+// Initialize application
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM Content Loaded');
+    console.log('Project Data:', projectData);
+    
+    try {
+        initializeComponents();
+        console.log('Components initialized');
+        
+        // Wait a frame for DOM updates before initializing charts
+        requestAnimationFrame(() => {
+            console.log('Initializing charts...');
+            initializeCharts();
+            console.log('Charts initialized');
+        });
+    } catch (error) {
+        console.error('Initialization error:', error);
+        document.body.innerHTML = `
+            <div style="padding: 2rem; font-family: monospace;">
+                <h1 style="color: red;">Error Loading Application</h1>
+                <p>${error.message}</p>
+                <pre>${error.stack}</pre>
+            </div>
+        `;
+    }
+});
+
+// Add smooth scroll behavior
+document.addEventListener('click', (e) => {
+    if (e.target.matches('a[href^="#"]')) {
+        e.preventDefault();
+        const targetId = e.target.getAttribute('href').slice(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }
+});
+
+// Log initialization
+console.log('DRL-Stonks Application Initialized');
+console.log('Project Data:', projectData);

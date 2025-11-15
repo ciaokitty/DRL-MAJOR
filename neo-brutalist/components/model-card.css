@@ -1,0 +1,96 @@
+/* Model Card Component */
+.model-card {
+    background: var(--card);
+    border: 4px solid var(--border);
+    padding: 32px;
+    box-shadow: 6px 6px 0 var(--shadow-color);
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.model-card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 var(--shadow-color);
+}
+
+.model-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--border);
+}
+
+.model-card__title {
+    font-size: 1.875rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.model-card__badge {
+    padding: 6px 16px;
+    border: 3px solid var(--border);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.model-card__badge--best {
+    background: #f97316;
+    color: #fafafa;
+}
+
+.model-card__badge--strong {
+    background: #3b82f6;
+    color: #fafafa;
+}
+
+.model-card__badge--good {
+    background: #22c55e;
+    color: #fafafa;
+}
+
+.model-card__badge--baseline {
+    background: #71717a;
+    color: #fafafa;
+}
+
+.model-card__badge--conservative {
+    background: #ef4444;
+    color: #fafafa;
+}
+
+.model-card__metrics {
+    display: grid;
+    gap: 16px;
+}
+
+.model-card__metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 2px solid var(--muted);
+}
+
+.model-card__metric:last-child {
+    border-bottom: none;
+}
+
+.model-card__metric-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--muted-foreground);
+}
+
+.model-card__metric-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.model-card__metric-value--highlight {
+    color: #22c55e;
+    font-weight: 900;
+}
